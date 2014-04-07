@@ -127,13 +127,12 @@
 
     // Check if the client has an API key
     if (self.client.apiKey) {
-        // Show first tab
-        [self.sidebar setSelectedIndex:0];
+        // Refresh devices list if it has one
         [self devicesRefreshButtonAction:self];
-    } else {
-        // Show settings tab
-        [self.sidebar setSelectedIndex:5];
     }
+
+    // Show first tab
+    [self.sidebar setSelectedIndex:0];
 
     // Set the block that is run before the popup is hidden
     self.popupItem.beforeHideBlock = ^{
