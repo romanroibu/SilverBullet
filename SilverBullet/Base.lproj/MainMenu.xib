@@ -685,7 +685,6 @@
                 <menuItem title="Notifications" id="x4D-No-HMj">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="allowNotificationsButtonAction:" target="ebm-Qe-wVp" id="ZmH-sc-c0p"/>
                         <binding destination="9vA-MD-4H1" name="value" keyPath="values.SilverBulletSettingsAllowLocalPushNotifications" id="3xh-p6-xsH"/>
                     </connections>
                 </menuItem>
