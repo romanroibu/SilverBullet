@@ -30,9 +30,19 @@
 
 
 - (IBAction)sendFeedback:(id)sender {
-#warning APP DELEGATE - SEND FEEDBACK - NOT IMPLEMENTED
-    NSLog(@"SEND FEEDBACK!");
+    
+    NSString *address  = @"roman.roibu@gmail.com";
+    NSString *subject  = @"SilverBullet Feedback";
+    NSString *mailBody = @"";
+    
+    NSString *mailToURLString = [NSString stringWithFormat:@"mailto:%@?Subject=%@&Body=%@",
+                                 address, subject, mailBody];
+    
+    NSURL *mailToURL = [NSURL URLWithString:[mailToURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+
+    [[NSWorkspace sharedWorkspace] openURL:mailToURL];
 }
+
 - (IBAction)rateThisApp:(id)sender {
 #warning APP DELEGATE - RATE THIS APP - NOT IMPLEMENTED
     NSLog(@"RATE THIS APP!");
