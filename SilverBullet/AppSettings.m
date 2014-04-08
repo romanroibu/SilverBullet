@@ -29,7 +29,6 @@ static NSString * const kAllowLocalPushNotifications    = @"SilverBulletSettings
         
         // If the application is running for the first time, set some default behaviour
         if (![_defaults boolForKey:kNotFirstTimeApplicationRunning]) {
-            NSLog(@"### APPLICATION FIRST TIME RUNNING ###");
             [_defaults setBool:YES forKey:kNotFirstTimeApplicationRunning];
             [_defaults setBool:YES forKey:kAllowLocalPushNotifications];
             [_defaults synchronize];
@@ -132,16 +131,5 @@ static NSString * const kAllowLocalPushNotifications    = @"SilverBulletSettings
 {
     return [_defaults boolForKey:kAllowLocalPushNotifications];
 }
-//
-//- (void)setAllowNotifications:(NSInteger)allowNotifications
-//{
-//    [_defaults setBool:(allowNotifications == NSOnState ? YES : NO) forKey:kAllowLocalPushNotifications];
-//    [_defaults synchronize];
-//}
-//
-//- (IBAction)allowNotificationsButtonAction:(NSMenuItem *)sender {
-//    NSInteger toggledState = (sender.state == NSOnState) ? NSOffState : NSOnState;
-//    [self setAllowNotifications:toggledState];
-//}
 
 @end

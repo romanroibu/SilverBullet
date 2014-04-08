@@ -14,7 +14,6 @@
 - (IBAction)launchAtStartupButtonAction:(NSMenuItem *)sender;
 
 @property (nonatomic) BOOL allowNotifications;
-- (IBAction)allowNotificationsButtonAction:(NSMenuItem *)sender;
 
 
 @end
