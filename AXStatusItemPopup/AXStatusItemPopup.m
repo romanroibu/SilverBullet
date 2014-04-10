@@ -170,14 +170,14 @@
         _popover.animates = animated;
         [_popover showRelativeToRect:self.frame ofView:self preferredEdge:NSMinYEdge];
 
-        _popoverTransiencyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask|NSRightMouseDownMask handler:^(NSEvent* event) {
-            
-            
-            if (self.autoHide) {
-                [self hidePopover];
-            }
-
-        }];
+//        _popoverTransiencyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask|NSRightMouseDownMask handler:^(NSEvent* event) {
+//            
+//            
+//            if (self.autoHide) {
+//                [self hidePopover];
+//            }
+//
+//        }];
     }
 }
 
@@ -192,7 +192,7 @@
     if (_popover && _popover.isShown) {
         [_popover close];
 
-        [NSEvent removeMonitor:_popoverTransiencyMonitor];
+//        [NSEvent removeMonitor:_popoverTransiencyMonitor];
     }
 }
 
