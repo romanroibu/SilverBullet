@@ -15,8 +15,6 @@
 #import "TabController.h"
 #import "SettingsTabController.h"
 
-#import "AppDelegate.h"
-
 @interface SBTPopupViewController () <NSUserNotificationCenterDelegate>
 
 // Tab Controllers
@@ -227,8 +225,7 @@
 
 - (void)postNotificationWithDescription:(NSString *)description
 {
-    AppDelegate *appDelegate = [NSApp delegate];
-    if ([[appDelegate appSettings] allowNotifications]) {
+    if ([self.settingsTabController allowNotifications]) {
         NSUserNotification *notification = [[NSUserNotification alloc] init];
         notification.title = @"Pushed Successfully!";
         notification.informativeText = description;

@@ -10,4 +10,14 @@
 #import "PBAPIClient.h"
 
 @interface SettingsTabController : NSObject
+
+// Launch At Startup Option
+@property (nonatomic) NSInteger launchAtStartup;
+- (IBAction)launchAtStartupCheckboxAction:(NSButton *)sender;
+
+// Allow Local Push Notifications Option
+@property (nonatomic) BOOL allowNotifications;
+
+
+
 @end

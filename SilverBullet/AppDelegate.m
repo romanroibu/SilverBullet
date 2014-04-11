@@ -27,7 +27,6 @@
     [statusItemPopup setRightClickMenu:self.rightClickMenu];
 }
 
-
 - (IBAction)sendFeedback:(id)sender {
     
     NSString *address  = @"roman.roibu@gmail.com";

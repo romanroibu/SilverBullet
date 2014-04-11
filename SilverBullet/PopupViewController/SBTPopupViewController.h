@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "ITSidebar.h"
 #import "AXStatusItemPopup.h"
-#import "AppSettings.h"
 
 @interface SBTPopupViewController : NSViewController
 
