@@ -143,6 +143,27 @@
     
     // Set self as the notification center delegate
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    
+    // Subscribe to workspace change notification
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
+                                                           selector:@selector(workspaceDidChange:)
+                                                               name:NSWorkspaceActiveSpaceDidChangeNotification
+                                                             object:nil];
+}
+
+- (void)dealloc
+{
+    [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
+}
+
+#pragma mark - NSNotificationCenter Notification Methods
+
+- (void)workspaceDidChange:(NSNotification *)notification
+{
+    BOOL oldAnimated = self.popupItem.animated;
+    self.popupItem.animated = NO;
+    [self.popupItem hidePopover];
+    self.popupItem.animated = oldAnimated;
 }
 
 #pragma mark - IBActions
