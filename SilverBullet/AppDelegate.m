@@ -42,8 +42,9 @@
 }
 
 - (IBAction)rateThisApp:(id)sender {
-#warning APP DELEGATE - RATE THIS APP - NOT IMPLEMENTED
-    NSLog(@"RATE THIS APP!");
+    NSString *appStoreLink = @"https://itunes.apple.com/us/app/silverbullet/id860994885?ls=1&mt=12";
+    NSURL    *appStoreURL  = [NSURL URLWithString:appStoreLink];
+    [[NSWorkspace sharedWorkspace] openURL:appStoreURL];
 }
 
 @end
