@@ -341,14 +341,37 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-fg-t5I">
-                                        <rect key="frame" x="2" y="98" width="272" height="34"/>
+                                        <rect key="frame" x="-2" y="98" width="276" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" enabled="NO" sendsActionOnEndEditing="YES" title="Please provide the API key from pushbullet.com/account" id="DTU-AI-lhr">
-                                            <font key="font" metaFont="system"/>
+                                        <textFieldCell key="cell" enabled="NO" sendsActionOnEndEditing="YES" title="Please provide the API key from     pushbullet.com/account" id="DTU-AI-lhr">
+                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-3I-NxT">
+                                        <rect key="frame" x="-2" y="74" width="276" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="check" title="Send notifications on successful push" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="B1r-GF-xe7">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="Le6-Sx-rHp" name="value" keyPath="values.SilverBulletSettingsAllowLocalPushNotifications" id="lCZ-q9-KVJ"/>
+                                        </connections>
+                                    </button>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GTh-GT-wn8">
+                                        <rect key="frame" x="-2" y="54" width="276" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="check" title="Launch application on startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="C1q-Uy-S14">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="launchAtStartupCheckboxAction:" target="nYA-I4-kk6" id="zJi-Lm-jvf"/>
+                                            <binding destination="nYA-I4-kk6" name="value" keyPath="self.launchAtStartup" id="I73-tm-fgD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                         </tabViewItem>
