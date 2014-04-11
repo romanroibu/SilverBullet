@@ -102,7 +102,7 @@
 - (void)rightMouseUp:(NSEvent *)theEvent
 {
     if (self.rightClickMenu) {
-        [NSMenu popUpContextMenu:self.rightClickMenu withEvent:theEvent forView:self];
+        [self.statusItem popUpStatusItemMenu:self.rightClickMenu];
     }
 }
 
