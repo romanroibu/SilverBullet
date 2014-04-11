@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9DD0BC2FB70C4116A4F1716D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAEAECBE1B342C8A406A6AF /* libPods.a */; };
-		E01290BB18F150A00048377B /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E01290BA18F150A00048377B /* AppSettings.m */; };
 		E012A69718DF4338004313AE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E012A69618DF4338004313AE /* Cocoa.framework */; };
 		E012A6A118DF4338004313AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E012A69F18DF4338004313AE /* InfoPlist.strings */; };
 		E012A6A318DF4338004313AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E012A6A218DF4338004313AE /* main.m */; };
@@ -53,8 +52,6 @@
 
 /* Begin PBXFileReference section */
 		77957D7A45334B23AECC37F7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		E01290B918F150A00048377B /* AppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettings.h; sourceTree = "<group>"; };
-		E01290BA18F150A00048377B /* AppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettings.m; sourceTree = "<group>"; };
 		E012A69318DF4338004313AE /* SilverBullet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilverBullet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E012A69618DF4338004313AE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E012A69918DF4338004313AE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -186,8 +183,6 @@
 				E012A6E418DF5870004313AE /* Categories */,
 				E012A6A818DF4338004313AE /* AppDelegate.h */,
 				E012A6A918DF4338004313AE /* AppDelegate.m */,
-				E01290B918F150A00048377B /* AppSettings.h */,
-				E01290BA18F150A00048377B /* AppSettings.m */,
 				E012A6AB18DF4338004313AE /* MainMenu.xib */,
 				E012A6AE18DF4338004313AE /* Images.xcassets */,
 				E012A69D18DF4338004313AE /* Supporting Files */,
@@ -457,7 +452,6 @@
 			files = (
 				E02D635C18DF6B8F00206B37 /* NSWindow+canBecomeKeyWindow.m in Sources */,
 				E012A6D018DF57F0004313AE /* SBTPopupViewController.m in Sources */,
-				E01290BB18F150A00048377B /* AppSettings.m in Sources */,
 				E0F44C7E18EF24610006E104 /* SettingsTabController.m in Sources */,
 				E0F44C8B18EF258C0006E104 /* ListTabController.m in Sources */,
 				E0F44C8518EF25050006E104 /* LinkTabController.m in Sources */,
