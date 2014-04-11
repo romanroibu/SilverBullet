@@ -29,7 +29,7 @@
 
 - (IBAction)sendFeedback:(id)sender {
     
-    NSString *address  = @"roman.roibu@gmail.com";
+    NSString *address  = @"roman.roibu@icloud.com";
     NSString *subject  = @"SilverBullet Feedback";
     NSString *mailBody = @"";
     
