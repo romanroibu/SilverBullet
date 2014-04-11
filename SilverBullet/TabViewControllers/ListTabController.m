@@ -42,7 +42,7 @@
 - (IBAction)addRemoveItemAction:(NSSegmentedControl *)sender {
     NSInteger action = [sender selectedSegment];
     NSInteger selected = [self.tableView selectedRow];
-    NSString *newItem = [NSString stringWithFormat:@"Item %d", (int)[self.itemList count]];
+    NSString *newItem = [NSString stringWithFormat:@"Item %d", (int)[self.itemList count] + 1];
     
 
     switch (action) {
