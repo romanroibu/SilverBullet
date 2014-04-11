@@ -24,7 +24,6 @@
                                                                                      image:[NSImage imageNamed:@"bullet_dark"]
                                                                             alternateImage:[NSImage imageNamed:@"bullet_light"]];
     [popupVC setPopupItem:statusItemPopup];
-    [statusItemPopup setAutoHide:NO];
     [statusItemPopup setRightClickMenu:self.rightClickMenu];
 }
 

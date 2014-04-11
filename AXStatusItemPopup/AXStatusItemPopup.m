@@ -59,8 +59,6 @@
         
         _active = NO;
         _animated = YES;
-        
-        self.autoHide = YES;
     }
     return self;
 }
@@ -169,15 +167,13 @@
     if (!_popover.isShown) {
         _popover.animates = animated;
         [_popover showRelativeToRect:self.frame ofView:self preferredEdge:NSMinYEdge];
-
-//        _popoverTransiencyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask|NSRightMouseDownMask handler:^(NSEvent* event) {
-//            
-//            
-//            if (self.autoHide) {
-//                [self hidePopover];
-//            }
-//
-//        }];
+        
+        __weak AXStatusItemPopup *weakSelf = self;
+        [self removeTransiencyMonitor];
+        [self addTransiencyMonitorWithHandler:^(NSEvent *event) {
+            [weakSelf hidePopover];
+        }];
+        
     }
 }
 
@@ -192,7 +188,27 @@
     if (_popover && _popover.isShown) {
         [_popover close];
 
-//        [NSEvent removeMonitor:_popoverTransiencyMonitor];
+        [self removeTransiencyMonitor];
+    }
+}
+
+/////////////////////////////////////////////////
+#pragma mark - Add / Remove Transiency Monitor
+/////////////////////////////////////////////////
+
+- (void)addTransiencyMonitorWithHandler:(void(^)(NSEvent *event))handler
+{
+    if (!_popoverTransiencyMonitor) {
+        _popoverTransiencyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask|NSRightMouseDownMask
+                                                                           handler:handler];
+    }
+}
+
+- (void)removeTransiencyMonitor
+{
+    if (_popoverTransiencyMonitor) {
+        [NSEvent removeMonitor:_popoverTransiencyMonitor];
+        _popoverTransiencyMonitor = nil;
     }
 }
 
