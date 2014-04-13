@@ -172,8 +172,14 @@
     [self.devicesSpinner startAnimation:self];
     [self.client getDevicesWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
         self.deviceList = [(NSDictionary *)responseObject objectForKey:@"devices"];
-        if ([self.devicesComboBox indexOfSelectedItem] < 0 && [self.deviceList count] > 0) {
-            [self.devicesComboBox selectItemAtIndex:0]; //If nothing is selected
+        
+        BOOL nothingIsSelected = [[self.devicesComboBox stringValue] isEqualToString:@""];
+        BOOL selectedItemNoLongerInList = ![[self.devicesComboBox objectValues] containsObject:[self.devicesComboBox stringValue]];
+        BOOL listIsNotEmpty = [self.deviceList count] > 0;
+
+        if ((nothingIsSelected || selectedItemNoLongerInList) && listIsNotEmpty) {
+            // Select the first item in new list
+            [self.devicesComboBox selectItemAtIndex:0];
             self.canPush = YES;
         }
         [self.devicesSpinner stopAnimation:self];
