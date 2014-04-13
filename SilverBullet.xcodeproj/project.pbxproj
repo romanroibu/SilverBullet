@@ -90,6 +90,7 @@
 		E02D635818DF630600206B37 /* SBTPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBTPopupViewController.xib; sourceTree = "<group>"; };
 		E02D635A18DF6B8F00206B37 /* NSWindow+canBecomeKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSWindow+canBecomeKeyWindow.h"; path = "Categories/NSWindow+canBecomeKeyWindow.h"; sourceTree = "<group>"; };
 		E02D635B18DF6B8F00206B37 /* NSWindow+canBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+canBecomeKeyWindow.m"; path = "Categories/NSWindow+canBecomeKeyWindow.m"; sourceTree = "<group>"; };
+		E04D497E18F8B947003E354A /* SilverBullet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SilverBullet.entitlements; sourceTree = "<group>"; };
 		E064033418F03B45007FCB16 /* NSImage+QuickLook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+QuickLook.h"; sourceTree = "<group>"; };
 		E064033518F03B45007FCB16 /* NSImage+QuickLook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+QuickLook.m"; sourceTree = "<group>"; };
 		E064033618F03B45007FCB16 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		E012A69C18DF4338004313AE /* SilverBullet */ = {
 			isa = PBXGroup;
 			children = (
+				E04D497E18F8B947003E354A /* SilverBullet.entitlements */,
 				E012A6CC18DF57F0004313AE /* PopupViewController */,
 				E0F44C7F18EF24660006E104 /* TabViewControllers */,
 				E012A6E518DF5EC6004313AE /* Pushbullet API Client */,
@@ -362,6 +364,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Roman Roibu";
 				TargetAttributes = {
+					E012A69218DF4338004313AE = {
+						DevelopmentTeam = 99DC555NUS;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					E012A6B318DF4339004313AE = {
 						TestTargetID = E012A69218DF4338004313AE;
 					};
@@ -599,6 +609,8 @@
 			baseConfigurationReference = 77957D7A45334B23AECC37F7 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SilverBullet/SilverBullet.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SilverBullet/SilverBullet-Prefix.pch";
@@ -613,6 +625,8 @@
 			baseConfigurationReference = 77957D7A45334B23AECC37F7 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SilverBullet/SilverBullet.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SilverBullet/SilverBullet-Prefix.pch";
