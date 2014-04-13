@@ -32,6 +32,8 @@
 		E064033818F03B45007FCB16 /* NSImage+QuickLook.m in Sources */ = {isa = PBXBuildFile; fileRef = E064033518F03B45007FCB16 /* NSImage+QuickLook.m */; };
 		E064033918F03B45007FCB16 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E064033618F03B45007FCB16 /* README.rtf */; };
 		E064033A18F03B45007FCB16 /* Source Code License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E064033718F03B45007FCB16 /* Source Code License.rtf */; };
+		E0C8FE0B18FAB41600C3D40F /* NSCell+focusRingType.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C8FE0A18FAB41600C3D40F /* NSCell+focusRingType.m */; };
+		E0C8FE0E18FABEBC00C3D40F /* NSView+focusRingType.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C8FE0D18FABEBC00C3D40F /* NSView+focusRingType.m */; };
 		E0F44C7E18EF24610006E104 /* SettingsTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F44C7D18EF24610006E104 /* SettingsTabController.m */; };
 		E0F44C8218EF24CF0006E104 /* NoteTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F44C8118EF24CF0006E104 /* NoteTabController.m */; };
 		E0F44C8518EF25050006E104 /* LinkTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F44C8418EF25050006E104 /* LinkTabController.m */; };
@@ -95,6 +97,10 @@
 		E064033518F03B45007FCB16 /* NSImage+QuickLook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+QuickLook.m"; sourceTree = "<group>"; };
 		E064033618F03B45007FCB16 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
 		E064033718F03B45007FCB16 /* Source Code License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Source Code License.rtf"; sourceTree = "<group>"; };
+		E0C8FE0918FAB41600C3D40F /* NSCell+focusRingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCell+focusRingType.h"; path = "Categories/NSCell+focusRingType.h"; sourceTree = "<group>"; };
+		E0C8FE0A18FAB41600C3D40F /* NSCell+focusRingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCell+focusRingType.m"; path = "Categories/NSCell+focusRingType.m"; sourceTree = "<group>"; };
+		E0C8FE0C18FABEBC00C3D40F /* NSView+focusRingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+focusRingType.h"; path = "Categories/NSView+focusRingType.h"; sourceTree = "<group>"; };
+		E0C8FE0D18FABEBC00C3D40F /* NSView+focusRingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSView+focusRingType.m"; path = "Categories/NSView+focusRingType.m"; sourceTree = "<group>"; };
 		E0F44C7C18EF24610006E104 /* SettingsTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsTabController.h; path = TabViewControllers/SettingsTabController.h; sourceTree = "<group>"; };
 		E0F44C7D18EF24610006E104 /* SettingsTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsTabController.m; path = TabViewControllers/SettingsTabController.m; sourceTree = "<group>"; };
 		E0F44C8018EF24CF0006E104 /* NoteTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteTabController.h; path = TabViewControllers/NoteTabController.h; sourceTree = "<group>"; };
@@ -265,11 +271,10 @@
 		E012A6E418DF5870004313AE /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				E0C8FE0F18FAC10900C3D40F /* HACKS */,
 				E064033318F03B45007FCB16 /* NSImage+QuickLook */,
 				E012A6E118DF586B004313AE /* NSColor+SBTPushButtonColors.h */,
 				E012A6E218DF586B004313AE /* NSColor+SBTPushButtonColors.m */,
-				E02D635A18DF6B8F00206B37 /* NSWindow+canBecomeKeyWindow.h */,
-				E02D635B18DF6B8F00206B37 /* NSWindow+canBecomeKeyWindow.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -292,6 +297,19 @@
 				E064033718F03B45007FCB16 /* Source Code License.rtf */,
 			);
 			path = "NSImage+QuickLook";
+			sourceTree = "<group>";
+		};
+		E0C8FE0F18FAC10900C3D40F /* HACKS */ = {
+			isa = PBXGroup;
+			children = (
+				E02D635A18DF6B8F00206B37 /* NSWindow+canBecomeKeyWindow.h */,
+				E02D635B18DF6B8F00206B37 /* NSWindow+canBecomeKeyWindow.m */,
+				E0C8FE0918FAB41600C3D40F /* NSCell+focusRingType.h */,
+				E0C8FE0A18FAB41600C3D40F /* NSCell+focusRingType.m */,
+				E0C8FE0C18FABEBC00C3D40F /* NSView+focusRingType.h */,
+				E0C8FE0D18FABEBC00C3D40F /* NSView+focusRingType.m */,
+			);
+			name = HACKS;
 			sourceTree = "<group>";
 		};
 		E0F44C7F18EF24660006E104 /* TabViewControllers */ = {
@@ -468,7 +486,9 @@
 				E012A6AA18DF4338004313AE /* AppDelegate.m in Sources */,
 				E012A6E318DF586B004313AE /* NSColor+SBTPushButtonColors.m in Sources */,
 				E012A6E818DF5EC6004313AE /* PBAPIClient.m in Sources */,
+				E0C8FE0B18FAB41600C3D40F /* NSCell+focusRingType.m in Sources */,
 				E012A6D518DF5815004313AE /* AXStatusItemPopup.m in Sources */,
+				E0C8FE0E18FABEBC00C3D40F /* NSView+focusRingType.m in Sources */,
 				E012A6DE18DF583A004313AE /* ITSidebar.m in Sources */,
 				E0F44C8218EF24CF0006E104 /* NoteTabController.m in Sources */,
 				E0F44C8818EF256A0006E104 /* AddressTabController.m in Sources */,
