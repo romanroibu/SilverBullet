@@ -194,8 +194,8 @@
             NSString *errorDescription = [self.client prettyErrorForCode:response.statusCode];
             if (response.statusCode == 401) {
                 //API key error
-                errorDescription =  @"It looks like the API key invalid or missing. "
-                                    @"Please provide a valid API key in the Settings. ";
+                errorDescription =  @"It looks like the API key is invalid or missing. "
+                                    @"Please provide a valid API key in the Settings.";
             }
             [self showErrorAlertWithDescription:errorDescription];
         } else {
