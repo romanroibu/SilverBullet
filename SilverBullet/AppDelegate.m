@@ -24,27 +24,7 @@
                                                                                      image:[NSImage imageNamed:@"bullet_dark"]
                                                                             alternateImage:[NSImage imageNamed:@"bullet_light"]];
     [popupVC setPopupItem:statusItemPopup];
-    [statusItemPopup setRightClickMenu:self.rightClickMenu];
 }
 
-- (IBAction)sendFeedback:(id)sender {
-    
-    NSString *address  = @"roman.roibu@icloud.com";
-    NSString *subject  = @"SilverBullet Feedback";
-    NSString *mailBody = @"";
-    
-    NSString *mailToURLString = [NSString stringWithFormat:@"mailto:%@?Subject=%@&Body=%@",
-                                 address, subject, mailBody];
-    
-    NSURL *mailToURL = [NSURL URLWithString:[mailToURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-
-    [[NSWorkspace sharedWorkspace] openURL:mailToURL];
-}
-
-- (IBAction)rateThisApp:(id)sender {
-    NSString *appStoreLink = @"https://itunes.apple.com/us/app/silverbullet/id860994885?ls=1&mt=12";
-    NSURL    *appStoreURL  = [NSURL URLWithString:appStoreLink];
-    [[NSWorkspace sharedWorkspace] openURL:appStoreURL];
-}
 
 @end

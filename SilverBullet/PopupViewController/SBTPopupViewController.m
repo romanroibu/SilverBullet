@@ -306,10 +306,10 @@
 
 - (void)changeTabWithIdentifier:(NSString *)identifier color:(NSColor *)color
 {
-    BOOL hidden = [identifier isEqualToString:@"Settings"];
-    [self.devicesRefreshButton setHidden:hidden];
-    [self.devicesComboBox setHidden:hidden];
-    [self.pushButton setHidden:hidden];
+    BOOL isSettings = [identifier isEqualToString:@"Settings"];
+    [self.devicesRefreshButton setHidden:isSettings];
+    [self.devicesComboBox setHidden:isSettings];
+    [self.pushButton setHidden:isSettings];
 
     [self.tabView selectTabViewItemWithIdentifier:identifier];
 }

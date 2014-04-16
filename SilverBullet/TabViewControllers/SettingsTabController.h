@@ -18,6 +18,8 @@
 // Allow Local Push Notifications Option
 @property (nonatomic) BOOL allowNotifications;
 
-
+// Bottom Buttons' Actions
+- (IBAction)sendFeedback:(id)sender;
+- (IBAction)rateThisApp:(id)sender;
 
 @end

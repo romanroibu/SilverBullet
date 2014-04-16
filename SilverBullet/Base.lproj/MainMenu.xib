@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -11,11 +11,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
-            <connections>
-                <outlet property="rightClickMenu" destination="T1u-zG-iGw" id="ZSC-6A-l3A"/>
-            </connections>
-        </customObject>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -661,36 +657,6 @@
                             </menuItem>
                         </items>
                     </menu>
-                </menuItem>
-            </items>
-        </menu>
-        <menu title="Options" id="T1u-zG-iGw">
-            <items>
-                <menuItem title="About Silverbullet" id="JO1-T2-vV2">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="dUm-Ab-Hzn"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="yqD-QP-asv"/>
-                <menuItem title="Send Feedback" id="uPg-Sj-0xs">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="sendFeedback:" target="Voe-Tx-rLC" id="W31-Hh-CfD"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Rate This App" id="N28-Xe-fIJ">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="rateThisApp:" target="Voe-Tx-rLC" id="fVx-G3-oHo"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="7CQ-RJ-JAh"/>
-                <menuItem title="Quit" id="CHG-gg-bvW">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="terminate:" target="-1" id="Dlc-da-tsk"/>
-                    </connections>
                 </menuItem>
             </items>
         </menu>

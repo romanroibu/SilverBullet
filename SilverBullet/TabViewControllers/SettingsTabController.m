@@ -132,4 +132,26 @@ static NSString * const kAllowLocalPushNotifications    = @"SilverBulletSettings
     return [_defaults boolForKey:kAllowLocalPushNotifications];
 }
 
+#pragma mark - Bottom Buttons' Actions
+
+- (IBAction)sendFeedback:(id)sender {
+    
+    NSString *address  = @"silverbulletsupport@icloud.com";
+    NSString *subject  = @"SilverBullet Feedback";
+    NSString *mailBody = @"";
+    
+    NSString *mailToURLString = [NSString stringWithFormat:@"mailto:%@?Subject=%@&Body=%@",
+                                 address, subject, mailBody];
+    
+    NSURL *mailToURL = [NSURL URLWithString:[mailToURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[NSWorkspace sharedWorkspace] openURL:mailToURL];
+}
+
+- (IBAction)rateThisApp:(id)sender {
+    NSString *appStoreLink = @"https://itunes.apple.com/us/app/silverbullet/id860994885?ls=1&mt=12";
+    NSURL    *appStoreURL  = [NSURL URLWithString:appStoreLink];
+    [[NSWorkspace sharedWorkspace] openURL:appStoreURL];
+}
+
 @end
