@@ -56,6 +56,14 @@
     panel.allowsMultipleSelection = NO;
     panel.canChooseDirectories = NO;
 
+    // Save the current popover window level
+    NSWindow *popoverWindow = self.view.window;
+    NSInteger popoverLevel = [popoverWindow level];
+    
+    // Set the level to the panel's level
+    // To ensure proper window ordering
+    [popoverWindow setLevel:[panel level]];
+
     NSInteger result = [panel runModal];
 
     if (result == NSFileHandlingPanelOKButton) {
@@ -76,6 +84,9 @@
         //CANCELED
     }
 
+    // Set the level to initial value
+    [popoverWindow setLevel:popoverLevel];
+    
     // Allow popover to autohide
     self.statusBarItem.allowHide = YES;
 }

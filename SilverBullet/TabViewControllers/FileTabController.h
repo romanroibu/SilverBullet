@@ -11,4 +11,6 @@
 
 @interface FileTabController : TabController <TabController>
 @property (strong, nonatomic) NSURL *fileURL;
+
+@property (weak, nonatomic) IBOutlet NSView *view;
 @end

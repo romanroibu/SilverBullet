@@ -505,6 +505,7 @@
             <connections>
                 <outlet property="filenameTextField" destination="UGq-2W-eO8" id="BLX-jD-ubc"/>
                 <outlet property="iconImageView" destination="LJM-t2-8mc" id="Qgz-Uc-sw9"/>
+                <outlet property="view" destination="c22-O7-iKe" id="oUp-E0-xbs"/>
             </connections>
         </customObject>
         <customObject id="nYA-I4-kk6" customClass="SettingsTabController">
