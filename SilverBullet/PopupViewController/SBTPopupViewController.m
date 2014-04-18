@@ -149,6 +149,9 @@
                                                            selector:@selector(workspaceDidChange:)
                                                                name:NSWorkspaceActiveSpaceDidChangeNotification
                                                              object:nil];
+    
+    // Set the File tab's statuItem property
+    self.fileTabController.statusBarItem = self.popupItem;
 }
 
 - (void)dealloc

@@ -24,6 +24,8 @@
 
 @implementation FileTabController
 
+@synthesize statusBarItem = _statusBarItem;
+
 - (void)setFileURL:(NSURL *)fileURL
 {
     _fileURL = fileURL;
@@ -47,11 +49,15 @@
 }
 
 - (IBAction)browseButtonAction:(id)sender {
+    // Prevent popover from hiding
+    self.statusBarItem.allowHide = NO;
+
     NSOpenPanel *panel = [NSOpenPanel openPanel];
     panel.allowsMultipleSelection = NO;
     panel.canChooseDirectories = NO;
+
     NSInteger result = [panel runModal];
-    
+
     if (result == NSFileHandlingPanelOKButton) {
         NSURL *fileURL = panel.URL;
         unsigned long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:[fileURL path]
@@ -69,6 +75,9 @@
     } else {
         //CANCELED
     }
+
+    // Allow popover to autohide
+    self.statusBarItem.allowHide = YES;
 }
 
 #pragma mark - TabController Protocol
