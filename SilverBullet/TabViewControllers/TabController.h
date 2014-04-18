@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AXStatusItemPopup.h"
 
 @protocol TabController <NSObject>
 - (void)pushWithDeviceIDEN:(NSString *)IDEN completionBlock:(void (^)(NSError *error))completionBlock;
 - (void)resetController;
 
 - (NSString *)notificationDescription;
+
+@optional
+@property (weak, nonatomic) AXStatusItemPopup *statusBarItem;
 @end
 
 @interface TabController : NSObject
