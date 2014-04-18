@@ -18,6 +18,7 @@
 - (IBAction)addRemoveItemAction:(NSSegmentedControl *)sender;
 
 @property (strong, nonatomic) NSMutableArray *itemList;
+@property (weak) IBOutlet NSTextField *noItemsLabel;
 @end
 
 @implementation ListTabController
@@ -100,7 +101,9 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return [self.itemList count];
+    NSInteger itemsCount = [self.itemList count];
+    [self.noItemsLabel setHidden:!!itemsCount];
+    return itemsCount;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row

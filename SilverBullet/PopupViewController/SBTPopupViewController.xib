@@ -221,7 +221,7 @@
                                     <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obf-c7-Fzj">
                                         <rect key="frame" x="0.0" y="20" width="272" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <clipView key="contentView" focusRingType="none" id="edd-Yf-QiB">
+                                        <clipView key="contentView" focusRingType="none" drawsBackground="NO" copiesOnScroll="NO" id="edd-Yf-QiB">
                                             <rect key="frame" x="1" y="1" width="270" height="130"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -229,7 +229,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="270" height="130"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="0.0" height="2"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
                                                         <tableColumn width="270" minWidth="40" maxWidth="1000" id="R1s-OC-ir0">
@@ -265,6 +265,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gxr-hJ-Vku">
+                                        <rect key="frame" x="0.0" y="80" width="276" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="To add items, click + button" id="qZF-jh-8KR">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="sgT-Ri-gfD" firstAttribute="top" secondItem="Tdj-4H-ILw" secondAttribute="top" constant="20" id="2J6-Ww-0xt"/>
@@ -504,6 +513,7 @@
         </customObject>
         <customObject id="pGm-qN-ztA" customClass="ListTabController">
             <connections>
+                <outlet property="noItemsLabel" destination="Gxr-hJ-Vku" id="8Ep-Fa-alm"/>
                 <outlet property="tableView" destination="ici-T7-FK1" id="bTt-dc-us5"/>
                 <outlet property="titleTextFiled" destination="sgT-Ri-gfD" id="4vi-m3-cUe"/>
             </connections>
