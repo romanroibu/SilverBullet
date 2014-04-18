@@ -57,7 +57,8 @@
         unsigned long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:[fileURL path]
                                                                                         error:nil]
                                        fileSize];
-        if (fileSize < 209715200) {
+
+        if (fileSize < 26214400) {
             // File Size < 25MB - VALID!
             self.fileURL = fileURL;
         } else {
