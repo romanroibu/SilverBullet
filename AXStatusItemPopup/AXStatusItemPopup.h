@@ -18,6 +18,7 @@
 @property(strong, nonatomic) NSStatusItem *statusItem;
 
 @property (weak, nonatomic) NSMenu *rightClickMenu;
+@property (nonatomic) BOOL allowHide;
 
 // init
 - (id)initWithViewController:(NSViewController *)controller;

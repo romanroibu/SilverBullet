@@ -59,6 +59,8 @@
         
         _active = NO;
         _animated = YES;
+        
+        self.allowHide = YES;
     }
     return self;
 }
@@ -167,7 +169,7 @@
     if (!_popover.isShown) {
         _popover.animates = animated;
         [_popover showRelativeToRect:self.frame ofView:self preferredEdge:NSMinYEdge];
-        
+
         __weak AXStatusItemPopup *weakSelf = self;
         [self removeTransiencyMonitor];
         [self addTransiencyMonitorWithHandler:^(NSEvent *event) {
@@ -179,6 +181,8 @@
 
 - (void)hidePopover
 {
+    if (!self.allowHide) return;
+
     if (self.beforeHideBlock) {
         self.beforeHideBlock();
     }
