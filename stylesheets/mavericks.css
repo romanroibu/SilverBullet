@@ -1,0 +1,8 @@
+.mavericks {
+  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #0055CC), color-stop(0.75, #01BA98), color-stop(1, #01BA98));
+  background-image: -o-linear-gradient(right top, #0055CC 0%, #01BA98 75%, #01BA98 100%);
+  background-image: -moz-linear-gradient(right top, #0055CC 0%, #01BA98 75%, #01BA98 100%);
+  background-image: -webkit-linear-gradient(right top, #0055CC 0%, #01BA98 75%, #01BA98 100%);
+  background-image: -ms-linear-gradient(right top, #0055CC 0%, #01BA98 75%, #01BA98 100%);
+  background-image: linear-gradient(to right top, #0055CC 0%, #01BA98 75%, #01BA98 100%);
+}
