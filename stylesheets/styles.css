@@ -21,7 +21,9 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size:28px;
+    color: white;
+  font-size:34px;
+    font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 }
 
 h2 {
