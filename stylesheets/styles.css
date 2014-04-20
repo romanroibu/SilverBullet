@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
 body {
-  padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
@@ -46,8 +45,8 @@ a small {
 }
 
 .wrapper {
-  width:860px;
-  margin:0 auto;
+    width: 820px;
+    margin: auto
 }
 
 blockquote {
@@ -121,9 +120,13 @@ header ul {
   width:270px;
 }
 
+header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+}
+
 header li {
-  width:89px;
-  float:left;
   border-right:1px solid #d2d2d2;
   height:40px;
 }
@@ -160,8 +163,6 @@ header ul a strong {
 }
 
 section {
-  width:500px;
-  float:right;
   padding-bottom:50px;
 }
 
@@ -177,12 +178,10 @@ hr {
 }
 
 footer {
-  width:270px;
-  float:left;
-  position:fixed;
   bottom:50px;
 }
 
+/*
 @media print, screen and (max-width: 960px) {
   
   div.wrapper {
@@ -237,9 +236,7 @@ footer {
 }
 
 @media print, screen and (max-width: 480px) {
-  body {
-    padding:15px;
-  }
+
   
   header ul {
     display:none;
@@ -248,8 +245,8 @@ footer {
 
 @media print {
   body {
-    padding:0.4in;
     font-size:12pt;
     color:#444;
   }
 }
+*/
