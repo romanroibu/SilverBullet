@@ -12,8 +12,8 @@
 
 @interface SBTPopupViewController : NSViewController
 
-@property (weak) AXStatusItemPopup *popupItem;
-@property (weak) IBOutlet ITSidebar *sidebar;
+@property (weak, nonatomic) AXStatusItemPopup *popupItem;
+@property (weak, nonatomic) IBOutlet ITSidebar *sidebar;
 
 // UI Elements
 @property (weak) IBOutlet NSTabView *tabView;
