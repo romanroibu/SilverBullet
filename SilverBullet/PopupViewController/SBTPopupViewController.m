@@ -224,9 +224,9 @@
     }
     
     NSInteger index = [self.devicesComboBox indexOfSelectedItem];
-    NSString *IDEN = self.deviceList[index][@"iden"];
-    
-    [controller pushWithDeviceIDEN:IDEN completionBlock:^(NSError *error) {
+    NSString *iden = self.deviceList[index][@"iden"];
+
+    [controller pushWithDeviceIDEN:iden completionBlock:^(NSError *error) {
         [self.pushSpinner stopAnimation:self];
         [self.pushButton setEnabled:YES];
 
