@@ -16,7 +16,9 @@
 @property (weak, nonatomic) IBOutlet ITSidebar *sidebar;
 
 // UI Elements
-@property (weak) IBOutlet NSTabView *tabView;
+@property (weak) IBOutlet NSTabView *mainTabView;
+@property (weak) IBOutlet NSTabView *pushTabView;
+
 @property (weak) IBOutlet NSButton *pushButton;
 @property (weak) IBOutlet NSComboBox *devicesComboBox;
 @property (weak) IBOutlet NSButton *devicesRefreshButton;

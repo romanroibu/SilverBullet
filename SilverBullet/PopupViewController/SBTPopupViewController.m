@@ -208,7 +208,7 @@
     [self.pushSpinner startAnimation:self];
     [self.pushButton setEnabled:NO];
 
-    NSString *identifier = [[self.tabView selectedTabViewItem] identifier];
+    NSString *identifier = [[self.pushTabView selectedTabViewItem] identifier];
     id<TabController> controller = self.tabControllers[identifier];
 
     // Check if file tab controller and doesn't have file
@@ -311,7 +311,12 @@
     [self.devicesComboBox setHidden:isSettings];
     [self.pushButton setHidden:isSettings];
 
-    [self.tabView selectTabViewItemWithIdentifier:identifier];
+    if (isSettings) {
+        [self.mainTabView selectTabViewItemWithIdentifier:@"Settings"];
+    } else {
+        [self.mainTabView selectTabViewItemWithIdentifier:@"PushTabs"];
+        [self.pushTabView selectTabViewItemWithIdentifier:identifier];
+    }
 }
 
 #pragma mark - NSUserNotificationCenterDelegate
