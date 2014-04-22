@@ -49,8 +49,6 @@
 }
 
 - (IBAction)browseButtonAction:(id)sender {
-    // Prevent popover from hiding
-    self.statusBarItem.allowHide = NO;
 
     NSOpenPanel *panel = [NSOpenPanel openPanel];
     panel.allowsMultipleSelection = NO;
@@ -86,9 +84,6 @@
 
     // Set the level to initial value
     [popoverWindow setLevel:popoverLevel];
-    
-    // Allow popover to autohide
-    self.statusBarItem.allowHide = YES;
 }
 
 #pragma mark - TabController Protocol
