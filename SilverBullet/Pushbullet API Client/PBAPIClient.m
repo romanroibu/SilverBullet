@@ -88,8 +88,8 @@ static NSString * const kAPIKeyUserDefaults = @"PushbulletAPIKeyDefaultsKey";
 {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     parameters[@"type"]    = @"note";
-    parameters[@"title"]   = title;
-    parameters[@"body"]    = body;
+    parameters[@"title"]   = title ? title : @"";
+    parameters[@"body"]    = body ? body : @"";
     
     [self pushWithDeviceIDEN:deviceIDEN
                   parameters:parameters
@@ -107,8 +107,8 @@ static NSString * const kAPIKeyUserDefaults = @"PushbulletAPIKeyDefaultsKey";
 {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     parameters[@"type"]    = @"link";
-    parameters[@"title"]   = title;
-    parameters[@"url"]     = urlString;
+    parameters[@"title"]   = title ? title : @"";
+    parameters[@"url"]     = urlString ? urlString : @"";
 
     [self pushWithDeviceIDEN:deviceIDEN
                   parameters:parameters
@@ -126,8 +126,8 @@ static NSString * const kAPIKeyUserDefaults = @"PushbulletAPIKeyDefaultsKey";
 {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     parameters[@"type"]    = @"address";
-    parameters[@"name"]    = name;
-    parameters[@"address"] = address;
+    parameters[@"name"]    = name ? name : @"";
+    parameters[@"address"] = address ? address : @"";
 
     [self pushWithDeviceIDEN:deviceIDEN
                   parameters:parameters
@@ -145,8 +145,8 @@ static NSString * const kAPIKeyUserDefaults = @"PushbulletAPIKeyDefaultsKey";
 {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     parameters[@"type"]  = @"list";
-    parameters[@"title"] = title;
-    parameters[@"items"] = items;
+    parameters[@"title"] = title ? title : @"";
+    parameters[@"items"] = items ? items : @[];
     
     [self pushWithDeviceIDEN:deviceIDEN
                   parameters:parameters
