@@ -94,11 +94,11 @@ NSWindow* windowToOverride;
         
         _imageView = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, kMinViewWidth, height)];
         [self addSubview:_imageView];
-        
+
         self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
         self.statusItem.view = self;
         self.statusItem.target = self;
-        self.statusItem.action = @selector(togglePopover:);
+        self.statusItem.action = @selector(togglePopover);
         
         self.popover = [[NSPopover alloc] init];
         self.popover.contentViewController = self.viewController;
