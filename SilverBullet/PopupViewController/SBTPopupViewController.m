@@ -15,7 +15,7 @@
 #import "TabController.h"
 #import "SettingsTabController.h"
 
-@interface SBTPopupViewController () <NSUserNotificationCenterDelegate>
+@interface SBTPopupViewController () <NSUserNotificationCenterDelegate, AXStatusItemPopupDelegate>
 
 // Tab Controllers
 @property (strong) IBOutlet NSObject<TabController> *noteTabController;
@@ -49,6 +49,12 @@
     [self.devicesComboBox removeAllItems];
     [self.devicesComboBox addItemsWithObjectValues:items];
     self.canPush = [_deviceList count] > 0;
+}
+
+- (void)setPopupItem:(AXStatusItemPopup *)popupItem
+{
+    _popupItem = popupItem;
+    _popupItem.delegate = self;
 }
 
 @synthesize tabControllers = _tabControllers;
@@ -131,15 +137,6 @@
 
     // Show first tab
     [self.sidebar setSelectedIndex:0];
-
-    // Set the block that is run before the popup is hidden
-    self.popupItem.beforeHideBlock = ^{
-        [self.pushButton setEnabled:YES];
-        [self.pushSpinner stopAnimation:self];
-        [self.devicesSpinner stopAnimation:self];
-        [[self.client operationQueue] cancelAllOperations];
-        [[self.tabControllers allValues] makeObjectsPerformSelector:@selector(resetController)];
-    };
     
     // Set self as the notification center delegate
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
@@ -322,6 +319,17 @@
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
 {
     return YES;
+}
+
+#pragma mark - AXStatusItemPopupDelegate
+
+- (void)popupWillClose
+{
+    [self.pushButton setEnabled:YES];
+    [self.pushSpinner stopAnimation:self];
+    [self.devicesSpinner stopAnimation:self];
+    [[self.client operationQueue] cancelAllOperations];
+    [[self.tabControllers allValues] makeObjectsPerformSelector:@selector(resetController)];
 }
 
 @end
