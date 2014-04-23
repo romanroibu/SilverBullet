@@ -13,6 +13,7 @@
 #import "PBAPIClient.h"
 
 #import "TabController.h"
+#import "FileTabController.h"
 #import "SettingsTabController.h"
 
 @interface SBTPopupViewController () <NSUserNotificationCenterDelegate, AXStatusItemPopupDelegate>
@@ -48,13 +49,15 @@
     NSArray *items = [deviceList valueForKeyPath:@"extras.nickname"];
     [self.devicesComboBox removeAllItems];
     [self.devicesComboBox addItemsWithObjectValues:items];
-    self.canPush = [_deviceList count] > 0;
+    [self.devicesComboBox setStringValue:@""];
+    self.canPush = NO;
 }
 
 - (void)setPopupItem:(AXStatusItemPopup *)popupItem
 {
     _popupItem = popupItem;
     _popupItem.delegate = self;
+    _popupItem.popover.behavior = NSPopoverBehaviorTransient;
 }
 
 @synthesize tabControllers = _tabControllers;
@@ -92,7 +95,7 @@
 
 - (void)viewDidLoad {
     self.sidebar.cellSize = NSMakeSize(50, 50);
-    
+
     [[self.sidebar addItemWithImage:[NSImage imageNamed:@"note"]
                      alternateImage:[NSImage imageNamed:@"note_highlight"]
                      target:self
@@ -147,6 +150,13 @@
                                                                name:NSWorkspaceActiveSpaceDidChangeNotification
                                                              object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSComboBoxSelectionDidChangeNotification
+                                                      object:self.devicesComboBox
+                                                       queue:[NSOperationQueue mainQueue]
+    usingBlock:^(NSNotification *note) {
+        self.canPush = YES;
+    }];
+    
     // Set the File tab's statuItem property
     self.fileTabController.statusBarItem = self.popupItem;
 }
@@ -154,6 +164,7 @@
 - (void)dealloc
 {
     [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - NSNotificationCenter Notification Methods
@@ -180,7 +191,6 @@
         if ((nothingIsSelected || selectedItemNoLongerInList) && listIsNotEmpty) {
             // Select the first item in new list
             [self.devicesComboBox selectItemAtIndex:0];
-            self.canPush = YES;
         }
         [self.devicesSpinner stopAnimation:self];
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
@@ -205,26 +215,37 @@
 }
 
 - (IBAction)pushButtonAction:(id)sender {
-    [self.pushSpinner startAnimation:self];
-    [self.pushButton setEnabled:NO];
 
+    // Get the controller of the currently selected tab
     NSString *identifier = [[self.pushTabView selectedTabViewItem] identifier];
     id<TabController> controller = self.tabControllers[identifier];
 
-    // Check if file tab controller and doesn't have file
+    // Check if current controller is the file tab controller
     if ([controller respondsToSelector:@selector(fileURL)]) {
+        // If it is, check if it has a file
         if (![(id)controller fileURL]) {
-            [self.pushSpinner stopAnimation:self];
-            [self.pushButton setEnabled:YES];
-
             [self showErrorAlertWithDescription:@"Looks like you didn't provide a file, or the file size exceeds 25MB. "
                                                 @"Please select a valid file to push"];
             return;
         }
     }
-    
+
+    // Get the index of the selected device name from the combo box
     NSInteger index = [self.devicesComboBox indexOfSelectedItem];
+
+    // Check if the selected index is in the range of the devices list array
+    if (index < 0 || index >= [self.deviceList count]) {
+        [self showErrorAlertWithDescription:@"Looks like you didn't select a device to push to, or that device is not available. "
+                                            @"Please click on the refresh button and then select a device from the list. "];
+        self.canPush = NO;
+        return;
+    }
+
+    // Get the IDEN from the devices list array of dictionaries
     NSString *iden = self.deviceList[index][@"iden"];
+
+    [self.pushSpinner startAnimation:self];
+    [self.pushButton setEnabled:NO];
 
     [controller pushWithDeviceIDEN:iden completionBlock:^(NSError *error) {
         [self.pushSpinner stopAnimation:self];
@@ -290,6 +311,7 @@
 
 - (IBAction)fileSelected:(id)sender {
     [self changeTabWithIdentifier:@"File" color:[NSColor fileColor]];
+    [(FileTabController *)self.fileTabController setPopupItem:self.popupItem];
 }
 
 - (IBAction)listSelected:(id)sender {
