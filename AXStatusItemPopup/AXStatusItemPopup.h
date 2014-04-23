@@ -34,6 +34,7 @@
 @property(strong, nonatomic) NSImage *alternateImage;
 @property(weak) id<AXStatusItemPopupDelegate> delegate;
 
+@property(readonly) NSPopover *popover;
 
 // alloc
 + (id)statusItemPopupWithViewController:(NSViewController *)controller;
