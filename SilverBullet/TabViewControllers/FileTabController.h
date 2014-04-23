@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "TabController.h"
 
+@class AXStatusItemPopup;
+
 @interface FileTabController : TabController <TabController>
 @property (strong, nonatomic) NSURL *fileURL;
 
 @property (weak, nonatomic) IBOutlet NSView *view;
+
+@property AXStatusItemPopup *popupItem;
 @end

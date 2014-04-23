@@ -11,7 +11,9 @@
 
 #import "NSImage+QuickLook.h"
 
-@interface FileTabController () {
+#import "AXStatusItemPopup.h"
+
+@interface FileTabController () <AXStatusItemPopupDelegate> {
     NSString *_notificationDescription;
 }
 
@@ -62,6 +64,14 @@
     // To ensure proper window ordering
     [popoverWindow setLevel:[panel level]];
 
+    // Save the current popover behavior and popupItem delegate
+    NSPopoverBehavior popoverBehavior = self.popupItem.popover.behavior;
+    id <AXStatusItemPopupDelegate> popupItemDelegate = self.popupItem.delegate;
+
+    // Set the popover behavior to application defined and delegate to self
+    self.popupItem.popover.behavior = NSPopoverBehaviorApplicationDefined;
+    self.popupItem.delegate = self;
+
     NSInteger result = [panel runModal];
 
     if (result == NSFileHandlingPanelOKButton) {
@@ -84,6 +94,10 @@
 
     // Set the level to initial value
     [popoverWindow setLevel:popoverLevel];
+    
+    // Set the popover behaviour and delegate to previous values
+    self.popupItem.popover.behavior = popoverBehavior;
+    self.popupItem.delegate = popupItemDelegate;
 }
 
 #pragma mark - TabController Protocol
@@ -115,6 +129,11 @@
 - (NSString *)notificationDescription
 {
     return _notificationDescription;
+}
+
+- (BOOL)shouldPopupClose
+{
+    return NO;
 }
 
 @end
